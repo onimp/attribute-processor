@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <Target Name="SetVersionAttributes" BeforeTargets="InitializeSourceControlInformation">
+        <Exec
+            Command="git describe --long --always --dirty --exclude=* --abbrev=8"
+            ConsoleToMSBuild="True"
+            IgnoreExitCode="False"
+        >
+            <Output PropertyName="GitRevision" TaskParameter="ConsoleOutput"/>
+        </Exec>
+        <Exec Command="git describe --tag --abbrev=0" ConsoleToMSBuild="True" IgnoreExitCode="False">
+            <Output PropertyName="GitVersion" TaskParameter="ConsoleOutput"/>
+        </Exec>
+        <CreateProperty Value="$([System.Text.RegularExpressions.Regex]::Match($(GitVersion), [^v].*))">
+            <Output TaskParameter="Value" PropertyName="GitVersion"/>
+        </CreateProperty>
+        <CreateProperty Value="$([System.Text.RegularExpressions.Regex]::Match($(GitVersion), \d+\.\d+.\d+))">
+            <Output TaskParameter="Value" PropertyName="GitNumericVersion"/>
+        </CreateProperty>
+        <PropertyGroup>
+            <BuildVersion>$(GitVersion)-$(GitRevision)</BuildVersion>
+            <InformationalVersion>$(BuildVersion)</InformationalVersion>
+            <FileVersion>$(GitNumericVersion).0</FileVersion>
+            <AssemblyVersion>$(GitNumericVersion)</AssemblyVersion>
+        </PropertyGroup>
+        <Message Text="Build version = $(InformationalVersion)" Importance="high"/>
+    </Target>
+</Project>

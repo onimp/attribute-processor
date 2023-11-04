@@ -1,0 +1,6 @@
+*.user
+/.idea
+/packages
+src/*/bin/
+src/*/obj/
+src/*/lib/

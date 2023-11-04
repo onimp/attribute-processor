@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeProcessor.Annotations", "src\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj", "{20D7FDE5-F507-4851-B116-8685C51BBC27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeProcessor.Core", "src\AttributeProcessor.Core\AttributeProcessor.Core.csproj", "{F7E3EE7B-11B3-4B2D-82C9-4C6F90224BD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeProcessor.Test", "src\AttributeProcessor.Test\AttributeProcessor.Test.csproj", "{90ADF5D5-ADCB-461D-B764-A3751C40874E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeProcessor.MSBuild.Task", "src\AttributeProcessor.MSBuild.Task\AttributeProcessor.MSBuild.Task.csproj", "{B930CDEF-0A00-4945-8432-28A74FBE86AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{681B5C49-6C63-42E0-97DF-5763F5BBC017}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		README.md = README.md
+		Directory.Build.targets = Directory.Build.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20D7FDE5-F507-4851-B116-8685C51BBC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D7FDE5-F507-4851-B116-8685C51BBC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D7FDE5-F507-4851-B116-8685C51BBC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D7FDE5-F507-4851-B116-8685C51BBC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E3EE7B-11B3-4B2D-82C9-4C6F90224BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E3EE7B-11B3-4B2D-82C9-4C6F90224BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E3EE7B-11B3-4B2D-82C9-4C6F90224BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E3EE7B-11B3-4B2D-82C9-4C6F90224BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90ADF5D5-ADCB-461D-B764-A3751C40874E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90ADF5D5-ADCB-461D-B764-A3751C40874E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90ADF5D5-ADCB-461D-B764-A3751C40874E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90ADF5D5-ADCB-461D-B764-A3751C40874E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B930CDEF-0A00-4945-8432-28A74FBE86AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B930CDEF-0A00-4945-8432-28A74FBE86AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B930CDEF-0A00-4945-8432-28A74FBE86AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B930CDEF-0A00-4945-8432-28A74FBE86AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

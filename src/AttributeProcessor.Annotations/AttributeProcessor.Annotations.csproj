@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyTitle>Attribute Processor Annotations</AssemblyTitle>
+        <Copyright>MIT License (C) ONIMP Team $([System.DateTime]::Now.ToString(`yyyy`))</Copyright>
+        <Company>ONIMP Team</Company>
+        <RepositoryUrl>https://github.com/onimp/attribute-processor</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+</Project>

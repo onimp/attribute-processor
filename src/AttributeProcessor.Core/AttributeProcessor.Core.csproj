@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyTitle>Attribute Processor</AssemblyTitle>
+        <Copyright>MIT License (C) ONIMP Team $([System.DateTime]::Now.ToString(`yyyy`))</Copyright>
+        <Company>ONIMP Team</Company>
+        <RepositoryUrl>https://github.com/onimp/attribute-processor</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="dnlib" Version="3.6.0" PrivateAssets="false"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj" />
+    </ItemGroup>
+</Project>
