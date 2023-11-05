@@ -22,6 +22,7 @@
             <InformationalVersion>$(BuildVersion)</InformationalVersion>
             <FileVersion>$(GitNumericVersion).0</FileVersion>
             <AssemblyVersion>$(GitNumericVersion)</AssemblyVersion>
+            <PackageVersion>$(GitNumericVersion)</PackageVersion>
         </PropertyGroup>
         <Message Text="Build version = $(InformationalVersion)" Importance="high"/>
     </Target>

@@ -1,0 +1,4 @@
+<Project TreatAsLocalProperty="AttributeProcessor">
+    <UsingTask TaskName="ProcessAttributes"
+               AssemblyFile="$(MSBuildThisFileDirectory)..\..\tasks\net48\AttributeProcessor.MSBuild.Task.dll"/>
+</Project>

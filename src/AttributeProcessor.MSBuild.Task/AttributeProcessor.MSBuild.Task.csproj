@@ -5,12 +5,45 @@
         <Company>ONIMP Team</Company>
         <RepositoryUrl>https://github.com/onimp/attribute-processor</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+
+        <Description>Performs assembly code manipulation using C# attributes</Description>
+        <Authors>polycone,zuev93</Authors>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+        <PackageTags>annotations,attribute-processor,attribute-processor-msbuild</PackageTags>
+
+        <TargetsForTfmSpecificBuildOutput>
+            $(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage
+        </TargetsForTfmSpecificBuildOutput>
+        <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+        <NoWarn>NU5100,NU5127,NU5128</NoWarn>
     </PropertyGroup>
+
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths)"
+                                  TargetPath="%(ReferenceCopyLocalPaths.DestinationSubPath)"/>
+        </ItemGroup>
+    </Target>
+
     <ItemGroup>
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0"/>
+        <Content Include="build\**" PackagePath="build\"/>
     </ItemGroup>
+
     <ItemGroup>
-        <ProjectReference Include="..\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj" />
-        <ProjectReference Include="..\AttributeProcessor.Core\AttributeProcessor.Core.csproj"/>
+        <PackageReference Include="Microsoft.Build.Utilities.Core"
+                          Version="17.5.0"
+                          PrivateAssets="all"
+                          ExcludeAssets="Runtime"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference
+            Include="..\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj"
+            PrivateAssets="all"/>
+        <ProjectReference
+            Include="..\AttributeProcessor.Core\AttributeProcessor.Core.csproj"
+            PrivateAssets="all"/>
     </ItemGroup>
 </Project>

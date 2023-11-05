@@ -5,5 +5,12 @@
         <Company>ONIMP Team</Company>
         <RepositoryUrl>https://github.com/onimp/attribute-processor</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+
+        <Description>Attribute processor annotations</Description>
+        <Authors>polycone,zuev93</Authors>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+        <PackageTags>annotations,attribute-processor,attribute-processor-msbuild</PackageTags>
     </PropertyGroup>
 </Project>

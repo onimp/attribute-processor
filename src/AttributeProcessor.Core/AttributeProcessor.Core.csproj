@@ -8,11 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="dnlib" Version="3.6.0" PrivateAssets="false"/>
+        <PackageReference Include="dnlib" Version="3.6.0"/>
         <PackageReference Include="JetBrains.Annotations" Version="2023.2.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj" />
+        <ProjectReference Include="..\AttributeProcessor.Annotations\AttributeProcessor.Annotations.csproj"/>
     </ItemGroup>
 </Project>
