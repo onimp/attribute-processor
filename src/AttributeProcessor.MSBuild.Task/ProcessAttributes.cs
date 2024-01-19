@@ -2,10 +2,12 @@
 using System.IO;
 using System.Linq;
 using AttributeProcessor.Core;
+using AttributeProcessor.Core.Extensions;
 using AttributeProcessor.Core.Processors;
 using dnlib.DotNet;
 using dnlib.DotNet.Writer;
 using JetBrains.Annotations;
+using Microsoft.Build.Framework;
 using ILogger = AttributeProcessor.Core.Logging.ILogger;
 
 namespace AttributeProcessor.MSBuild.Task;
@@ -14,6 +16,7 @@ namespace AttributeProcessor.MSBuild.Task;
 public class ProcessAttributes : Microsoft.Build.Utilities.Task {
 
     public virtual string? AssemblyPath { get; set; }
+    public virtual ITaskItem[]? AssemblySearchPaths { get; set; }
 
     private readonly ILogger logger;
 
@@ -29,15 +32,29 @@ public class ProcessAttributes : Microsoft.Build.Utilities.Task {
             return ReturnError($"Assembly \"{nameof(AssemblyPath)}\" doesn't exist");
 
         var configuration = Configure(AssemblyPath);
-        using (var module = ModuleDefMD.Load(configuration.OriginalAssemblyPath)) {
+        var context = CreateModuleContext();
+        using (var module = ModuleDefMD.Load(configuration.OriginalAssemblyPath, context)) {
             if (GetProcessors(module).Any(processor => !processor.Process()))
                 return false;
 
-            var options = new ModuleWriterOptions(module) { WritePdb = true };
+            var options = new ModuleWriterOptions(module);
             module.Write(AssemblyPath, options);
         }
         Cleanup(configuration);
         return true;
+    }
+
+    private ModuleContext CreateModuleContext() {
+        var context = new ModuleContext();
+        var assemblyResolver = new AssemblyResolver(context) { DefaultModuleContext = context };
+
+        AssemblySearchPaths?
+            .Select(it => it.ItemSpec)
+            .ForEach(it => assemblyResolver.PostSearchPaths.Add(it));
+
+        context.AssemblyResolver = assemblyResolver;
+        context.Resolver = new Resolver(assemblyResolver);
+        return context;
     }
 
     private Configuration Configure(string assemblyPath) {
