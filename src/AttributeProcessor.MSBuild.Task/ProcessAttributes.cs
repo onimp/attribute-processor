@@ -37,7 +37,7 @@ public class ProcessAttributes : Microsoft.Build.Utilities.Task {
             if (GetProcessors(module).Any(processor => !processor.Process()))
                 return false;
 
-            var options = new ModuleWriterOptions(module);
+            var options = new ModuleWriterOptions(module) { WritePdb = true };
             module.Write(AssemblyPath, options);
         }
         Cleanup(configuration);
